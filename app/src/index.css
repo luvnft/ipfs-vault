@@ -15,3 +15,22 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.scroll-load::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+.scroll-load::-webkit-scrollbar-track {
+  background: #121212;
+  /* color of the tracking area */
+}
+
+.scroll-load::-webkit-scrollbar-thumb {
+  background-color: #343434;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #121212;
+  /* creates padding around scroll thumb */
+}

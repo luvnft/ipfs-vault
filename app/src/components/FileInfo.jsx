@@ -29,7 +29,7 @@ const FileInfo = ({ show, setShow, file, response }) => {
   };
 
   return (
-    <div className="absolute rounded-md w-5/6 h-1/2 overflow-y-scroll bg-[#121212] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5">
+    <div className="absolute rounded-md w-5/6 h-1/2 overflow-y-scroll bg-[#121212] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 scroll-smooth scroll-load">
       <div className="flex flex-col w-full h-full">
         <div className="flex justify-end w-full">
           <img

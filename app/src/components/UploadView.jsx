@@ -45,6 +45,7 @@ const UploadView = ({ file, setFile, setShow, uploadFile }) => {
             </button>
           </div>
         </div>
+        <span className="text-xs text-gray-200">Max 100MiB</span>
       </div>
     </div>
   );
