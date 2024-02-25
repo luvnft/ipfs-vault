@@ -1,16 +1,26 @@
 import { useState } from "react";
-import { FileView, Footer, UploadView } from "./components";
+import { FileInfo, FileView, Footer, UploadView } from "./components";
+import { upload } from "./io/io";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState();
+  const [show, setShow] = useState(false);
+  const [response, setResponse] = useState(undefined);
+
+  const uploadFile = () => {
+    setResponse(undefined);
+    upload(file, setResponse);
+  };
 
   return (
-    <>
-      <section className="relative w-full flex flex-col px-5 justify-between h-screen">
-        <div class="absolute inset-0 h-full w-full opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] -z-20"></div>
-        <nav className="flex justify-between w-full py-5">
+    <div className="w-screen h-screen">
+      <Toaster />
+      <div className="flex flex-col justify-between w-full h-full">
+        <div className="absolute inset-0 h-full w-full opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] -z-20"></div>
+        <nav className="flex justify-between py-5 mx-4">
           <div className="flex flex-col justify-center w-full">
-            <h1 className="text-3xl text-green-400 font-extrabold">
+            <h1 className="text-3xl text-green-500 font-extrabold">
               IPFS VAULT
             </h1>
             <span className="font-semibold text-white">
@@ -31,11 +41,21 @@ function App() {
           </div>
         </nav>
 
-        <UploadView setFiles={setFiles} files={files} />
-        {/* <FileView files={files} /> */}
+        <UploadView
+          setFile={setFile}
+          file={file}
+          setShow={setShow}
+          uploadFile={uploadFile}
+        />
+        <FileInfo
+          show={show}
+          setShow={setShow}
+          response={response}
+          file={file}
+        />
         <Footer />
-      </section>
-    </>
+      </div>
+    </div>
   );
 }
 

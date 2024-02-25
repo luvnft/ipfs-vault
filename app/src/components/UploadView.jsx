@@ -1,14 +1,15 @@
 import React from "react";
 import upload from "../assets/upload.svg";
 
-const UploadView = ({ files, setFiles }) => {
+const UploadView = ({ file, setFile, setShow, uploadFile }) => {
   const handleFileChange = (e) => {
-    console.log(files);
-    setFiles([...e.target.files]);
+    setFile(e.target.files[0]);
   };
 
   const handleClick = (e) => {
     e.target.blur();
+    setShow(true);
+    uploadFile();
   };
 
   return (
@@ -20,8 +21,7 @@ const UploadView = ({ files, setFiles }) => {
             <input
               onChange={handleFileChange}
               type="file"
-              multiple
-              class="block w-full text-sm text-gray-300 cursor-pointer
+              className="block w-full text-sm text-gray-300 cursor-pointer
             my-4 bg-[#121212] p-3 rounded-md
             file:me-4 file:py-2 file:px-4
             file:rounded-lg file:border-0
@@ -36,8 +36,8 @@ const UploadView = ({ files, setFiles }) => {
             <button
               onClick={handleClick}
               style={{
-                scale: files.length === 0 ? "0" : "1",
-                position: files.length === 0 ? "absolute" : "",
+                scale: !file ? "0" : "1",
+                position: !file ? "absolute" : "",
               }}
               className="duration-500 text-white bg-green-600 hover:bg-green-700 py-2 px-4 me-4 rounded-lg text-sm font-semibold focus:scale-110"
             >

@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer class="flex shadow m-4 justify-between items-center">
+    <footer className="flex shadow m-4 justify-between items-center">
       <div className="flex flex-col">
         <span className="text-green-400 font-heading font-bold">
           IPFS VAULT
