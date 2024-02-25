@@ -3,7 +3,7 @@
 # IPFS-VAULT
 A web3 quick storage platform on IPFS. Upload files to IPFS directly no signup required.
 
-🟢 Live on : [https://ifpsvault.vercel.app](https://ifpsvault.vercel.app)
+🟢 Live on : [https://ipfsvault.vercel.app](https://ipfsvault.vercel.app)
 
 ## Why this?
 i was bored 🥱.
